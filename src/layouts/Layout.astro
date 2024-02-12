@@ -1,0 +1,117 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-slate-50">
+		<header class="sticky top-0 z-50 w-full md:mb-4 bg-white p-4 flex justify-between">
+		
+			<img
+			src="logo.webp"
+			alt="jorge sanchez logo"
+			class="object-fill bg-gray-200 w-10 h-10  rounded-md"
+		/>
+		</header>
+		<main
+			class="max-w-3xl mx-auto relative mb-4"
+		><img
+				src="/background.webp"
+				alt="background jorge sanchez portfolio"
+				class="object-cover bg-gray-200 w-full h-52 md:rounded-lg"
+			/>
+		<div class="flex flex-col gap-4 relative z-10 mt-[-60px] px-4">
+			<section>
+				<img
+					src="profile-photo.webp"
+					alt="jorge sanchez profile"
+					class="object-fill bg-gray-200 w-24 h-24 rounded-lg"
+				/>
+	
+				<div class="flex w-full justify-between gap-2">
+					<div>
+						<h1 class="text-2xl font-bold">Jorge Sanchez</h1>
+						<p class="text-md text-gray-500">Software Engineer / Web Developer</p>
+					</div>
+					<div>
+						<button
+							title="Share this page"
+							class="hidden md:inline-flex text-sm bg-slate-200 items-center justify-center px-4 py-2.5 font-medium text-gray-900 rounded-lg"
+							>Share</button
+						>
+						<a
+							class="inline-flex bg-violet-800 text-xs md:text-sm items-center justify-center px-4 py-2.5 font-medium text-white rounded-lg"
+							href="/"
+							title="Contact me"
+							>Contact me
+						</a>
+					</div>
+				</div>
+				<p>A specialist in what I love ❤️</p>
+			</section>
+				<ul class="flex w-full flex-wrap">
+					{
+						[{
+							name: 'About',
+							titleTag: 'About me',
+							href: '/'
+						},
+						{
+							name: 'Work',
+							titleTag: 'Work experience',
+							href: '/work'
+						},
+						{
+							name: 'Projects',
+							titleTag: 'Projects I\'ve worked on',
+							href: '/projects'
+						},
+						{
+							name: 'Content',
+							titleTag: 'Content I\'ve created',
+							href: '/content'
+						},
+						{
+							name: 'Thoughts',
+							titleTag: 'Thoughts I\'ve shared',
+							href: '/thoughts'
+						}].map(({ name, titleTag, href }) => {
+							const isCurrent = title.split(" ")[3] === name;
+							return (
+								<li class="flex-1 text-center">
+									<a
+										href={href}
+										class={`inline-block py-2 px-4 font-medium ${
+											isCurrent
+												? "text-violet-800 border-b-2 border-violet-800"
+												: ""
+										}`}
+										title={titleTag}
+									>{name}</a
+									>
+								</li>
+							);
+						})
+					}
+				</ul>
+		<slot />
+	</div>
+</main>
+	</body>
+</html>
+<style is:global>
+	
+</style>

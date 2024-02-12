@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Jorge Sanchez - About" description="Know more about Jorge Sanchez">
+	<section class="flex flex-col gap-4">
+		<div class="grid md:grid-cols-2 gap-4">
+			<figure>
+			<img
+				src="/about-photo.webp"
+				alt="babout jorge sanchez portfolio"
+				class="object-cover bg-gray-200 w-full h-full md:rounded-lg"
+			/>
+
+			</figure>
+			<article class="bg-white border border-gray-200 rounded-lg p-4">
+				<h2 class="text-xl font-bold text-gray-900">My Info</h5>
+				<p class="font-normal text-gray-700">
+					I'm an 18-year-old Colombian engineer who enjoys web
+					software development. I am enthusiastic about movies, games,
+					and anime. I always strive to give my best, testing new
+					ideas and technologies in my personal projects because I
+					believe that anything I can think of, I can achieve.
+				</p>
+			</article>
+		</div>
+		<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+			{
+				[{}, {}, {}].map(({}) => {
+					return (
+						<article class="bg-white border border-gray-200 rounded-lg p-4">
+							<img
+								src="profile-photo.webp"
+								alt="jorge sanchez profile"
+								class="object-fill bg-gray-200 w-12 h-12 rounded-lg mb-2"
+							/>
+							<h2 class="text-xl font-bold text-gray-900">
+								Github
+							</h2>
+							<p class="font-normal text-gray-500 mb-2">
+								@JorgeSanchez
+							</p>
+							<a 
+							class="inline-flex bg-black text-xs md:text-sm w-full items-center justify-center px-4 py-1.5 font-medium text-gray-200 rounded-lg" 
+							href="/"
+							title="Follow Jorge Sanchez on Github"
+							>
+								Follow
+							</a>
+						</article>
+					);
+				})
+			}
+		</div>
+	</section>
+	<style></style>
+</Layout>

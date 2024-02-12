@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Jorge Sanchez - Thoughts" description="Jorge Sanchez thoughts">
+    <section>
+        <ul id="results" class="grid gap-4">
+            {
+                [{}, {}, {}].map(({}) => {
+                    return (
+                        <li class="w-ful p-4 mb-2">
+                            <article class="flex gap-2">
+                                <header>
+                                    <figure>
+                                        <img
+                                            src="profile-photo.webp"
+                                            alt="jorge sanchez profile"
+                                            class="object-cover aspect-square bg-gray-200 w-[3.25rem] rounded-full"
+                                        />
+                                    </figure>
+                                </header>
+                                <footer class="flex flex-col w-full">
+                                    <div class="flex justify-between w-full mb-1">
+                                        <p class="text-base font-bold text-gray-900">
+                                            Jorge Sanchez
+                                        </p>
+                                        <time class="text-base font-thin text-gray-500">
+                                            31/1/2024
+                                        </time>
+                                    </div>
+                                    <span class="w-fit text-xs mb-2 rounded-md px-1.5 py-0.5 font-thin text-gray-500 border border-gray-500">
+                                        Fresh
+                                    </span>
+
+                                    <p class="font-normal text-gray-700">
+                                        Lorem Ipsum is simply dummy text of the
+                                        printing and typesetting industry. Lorem
+                                        Ipsum has been the industry's standard
+                                        dummy text ever since the 1500s, when an
+                                        unknown printer took a galley of type
+                                        and scrambled it to make a type specimen
+                                        book.
+                                    </p>
+                                </footer>
+                            </article>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </section>
+</Layout>
